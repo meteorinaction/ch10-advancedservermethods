@@ -1,0 +1,10 @@
+<template name="methods">
+  <h2>Call a method</h2>
+  <select id="methodName">
+    {{#each methodName}}
+    <option value="{{this}}">{{this}}</option>
+    {{/each}}
+  </select>
+  <input id="parameter" type="text">
+  <button id="callMethod">Call the method</button>
+</template>
