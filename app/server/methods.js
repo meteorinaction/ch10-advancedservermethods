@@ -22,6 +22,11 @@ setTimeoutFor3sCb = function (value, cb) {
     cb(null, result + 3)
   }, 3000);
 }
+block = function (value, cb) {
+  Meteor.setTimeout(function () {
+    cb(null, true);
+  }, 3000);
+}
 
 // methods
 Meteor.methods({
@@ -48,5 +53,12 @@ Meteor.methods({
     returnValue = Meteor.wrapAsync(setTimeoutFor3sCb)(returnValue);
     console.log('resultComputation', returnValue);
     return returnValue;
+  },
+  // sequential
+  'sequential': function (value) {
+    console.log('Method.sequential', value);
+    Meteor.wrapAsync(block)(value);
+    console.log('Method.sequential returns', value);
+    return true;
   }
 });

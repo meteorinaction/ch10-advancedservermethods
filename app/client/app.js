@@ -5,7 +5,8 @@ Template.methods.helpers({
       '',
       'blockingMethod',
       'nonBlockingMethod',
-      'wrapAsyncMethod'
+      'wrapAsyncMethod',
+      'sequential'
     ];
   }
 });
