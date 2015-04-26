@@ -60,5 +60,13 @@ Meteor.methods({
     Meteor.wrapAsync(block)(value);
     console.log('Method.sequential returns', value);
     return true;
+  },
+  // unblock
+  'unblock': function (value) {
+    console.log('Method.unblock', value);
+    this.unblock();
+    Meteor.wrapAsync(block)(value);
+    console.log('Method.unblock returns', value);
+    return value;
   }
 });

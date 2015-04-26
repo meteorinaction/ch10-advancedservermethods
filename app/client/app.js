@@ -6,7 +6,8 @@ Template.methods.helpers({
       'blockingMethod',
       'nonBlockingMethod',
       'wrapAsyncMethod',
-      'sequential'
+      'sequential',
+      'unblock'
     ];
   }
 });
