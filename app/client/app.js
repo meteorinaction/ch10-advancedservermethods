@@ -1,7 +1,11 @@
 Session.setDefault('selectedMethod');
 Template.methods.helpers({
   methodName: function () {
-    return ['', 'blockingMethod'];
+    return [
+      '',
+      'blockingMethod',
+      'nonBlockingMethod'
+    ];
   }
 });
 Template.methods.events = {
