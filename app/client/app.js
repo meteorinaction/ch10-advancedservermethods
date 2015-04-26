@@ -8,7 +8,8 @@ Template.methods.helpers({
       'wrapAsyncMethod',
       'sequential',
       'unblock',
-      'unboundEnvironment'
+      'unboundEnvironment',
+      'bindEnvironment'
     ];
   }
 });

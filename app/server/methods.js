@@ -76,6 +76,14 @@ Meteor.methods({
     setTimeoutFor3sCb(2, function () {
       console.log('3s later: ', Meteor.userId());
     });
+  },
+  // bindEnvironment
+  'bindEnvironment': function () {
+    console.log('Method.bindEnvironment: ', Meteor.userId());
+
+    setTimeoutFor3sCb(2, Meteor.bindEnvironment(function () {
+      console.log('Method.unboundEnvironment (3s delay): ', Meteor.userId());
+    }));
   }
 
 });
