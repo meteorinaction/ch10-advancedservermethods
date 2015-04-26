@@ -19,9 +19,9 @@ var apiCall = function (apiUrl, callback) {
 // methods
 Meteor.methods({
   'geoJsonForIp': function (ip) {
-    console.log('Method.geoJsonForIp for', ip);
+    this.unblock();
     var apiUrl = 'http://www.telize.com/geoip/' + ip;
-    var response = HTTP.get(apiUrl).data;
+    var response = Meteor.wrapAsync(apiCall)(apiUrl);
     return response;
   }
 });
