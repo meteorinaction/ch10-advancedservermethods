@@ -15,6 +15,7 @@ Template.upload.events({
       var result = reader.result;
       Meteor.call('saveFile', name, result);
     }
+    Session.set('file', name);
     reader.readAsDataURL(file); //read the file as base64
   }
 });
