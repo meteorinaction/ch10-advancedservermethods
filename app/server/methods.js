@@ -68,5 +68,14 @@ Meteor.methods({
     Meteor.wrapAsync(block)(value);
     console.log('Method.unblock returns', value);
     return value;
+  },
+  // unboundEnvironment
+  'unboundEnvironment': function () {
+    console.log('Method.unboundEnvironment: ', Meteor.userId());
+
+    setTimeoutFor3sCb(2, function () {
+      console.log('3s later: ', Meteor.userId());
+    });
   }
+
 });

@@ -7,7 +7,8 @@ Template.methods.helpers({
       'nonBlockingMethod',
       'wrapAsyncMethod',
       'sequential',
-      'unblock'
+      'unblock',
+      'unboundEnvironment'
     ];
   }
 });
