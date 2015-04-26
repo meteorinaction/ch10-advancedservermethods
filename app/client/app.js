@@ -1,7 +1,7 @@
 Session.setDefault('selectedMethod');
 Template.methods.helpers({
   methodName: function () {
-    return [];
+    return ['', 'blockingMethod'];
   }
 });
 Template.methods.events = {
@@ -9,7 +9,11 @@ Template.methods.events = {
     Session.set('selectedMethod', evt.currentTarget.value);
   },
   'click #callMethod': function (evt, tpl) {
-    var parameter = tpl.$('#parameter').val();
-    console.log(Session.get('selectedMethod'), parameter);
+    var methodName = Session.get('selectedMethod');
+    var parameter = parseInt(tpl.$('#parameter').val());
+    console.log('calling ' + methodName + ' with parameter ' + parameter);
+    Meteor.call(methodName, parameter, function (error, result) {
+      console.log('result:', result)
+    });
   }
 };
