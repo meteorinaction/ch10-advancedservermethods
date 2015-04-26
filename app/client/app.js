@@ -4,7 +4,8 @@ Template.methods.helpers({
     return [
       '',
       'blockingMethod',
-      'nonBlockingMethod'
+      'nonBlockingMethod',
+      'wrapAsyncMethod'
     ];
   }
 });

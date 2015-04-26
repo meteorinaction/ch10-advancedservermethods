@@ -15,6 +15,13 @@ setTimeoutFor3s = function (value) {
   }, 3000);
   return result;
 }
+setTimeoutFor3sCb = function (value, cb) {
+  var result = value;
+  Meteor.setTimeout(function () {
+    console.log('Result after timeout', result);
+    cb(null, result + 3)
+  }, 3000);
+}
 
 // methods
 Meteor.methods({
@@ -31,6 +38,14 @@ Meteor.methods({
     console.log('Method.nonBlockingMethod');
     var returnValue = 0;
     returnValue = setTimeoutFor3s(returnValue);
+    console.log('resultComputation', returnValue);
+    return returnValue;
+  },
+  // wrapAsyncMethod
+  'wrapAsyncMethod': function () {
+    console.log('Method.wrapAsyncMethod');
+    var returnValue = 0;
+    returnValue = Meteor.wrapAsync(setTimeoutFor3sCb)(returnValue);
     console.log('resultComputation', returnValue);
     return returnValue;
   }
