@@ -1,3 +1,14 @@
 <template name="telize">
+  <p>Query the location data for an IP</p>
+  <input id="ipv4" name="ipv4" type="text" />
+  <button>Look up location</button>
 
+  {{#with location}} {{#if error}}
+  <p>There was an error: {{error.errorType}} {{error.message}}!
+  </p>
+  {{else}}
+  <p>
+    The IP address {{location.ip}} is in {{location.city}} ({{location.country}}).
+  </p>
+  {{/if}} {{/with}}
 </template>
