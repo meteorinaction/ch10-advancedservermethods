@@ -1,0 +1,10 @@
+<template name="upload">
+  <h2>Upload a file</h2>
+  <input type="file" id="file-upload" />
+</template>
+
+<template name="file">
+  {{#with file}}
+  <h2>{{name}}</h2>
+  <img src="{{base64}}" /> {{/with}}
+</template>
